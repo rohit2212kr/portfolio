@@ -9,7 +9,7 @@ export default function TerminalWidget({ onOpenContact }) {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [isCopied, setIsCopied] = useState(false);
   const inputRef = useRef(null);
-  const terminalEndRef = useRef(null);
+  const containerRef = useRef(null);
 
   // Initial welcome sequence
   useEffect(() => {
@@ -25,10 +25,10 @@ export default function TerminalWidget({ onOpenContact }) {
     ]);
   }, []);
 
-  // Auto-scroll to bottom of terminal
+  // Container-scoped auto-scroll to bottom of terminal content without scrolling main viewport
   useEffect(() => {
-    if (terminalEndRef.current) {
-      terminalEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
   }, [history]);
 
@@ -280,7 +280,7 @@ Status:     OPEN FOR FULL-STACK & DEVELOPER TOOLING ROLES`,
           </div>
 
           {/* Terminal Screen Body */}
-          <div className="p-4 sm:p-6 min-h-[340px] max-h-[500px] overflow-y-auto space-y-4">
+          <div ref={containerRef} className="p-4 sm:p-6 min-h-[340px] max-h-[500px] overflow-y-auto space-y-4">
             {history.map((item, index) => {
               if (item.type === 'ascii') {
                 return (
@@ -333,8 +333,6 @@ Status:     OPEN FOR FULL-STACK & DEVELOPER TOOLING ROLES`,
                 <span className="inline-block w-2 h-4 bg-white animate-pulse ml-0.5 pointer-events-none" />
               </div>
             </div>
-
-            <div ref={terminalEndRef} />
           </div>
 
           {/* Terminal Footer Info */}

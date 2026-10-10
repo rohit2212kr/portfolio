@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BackgroundEffects from './components/BackgroundEffects';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -10,6 +10,13 @@ import ContactModal from './components/ContactModal';
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-black text-white selection:bg-white selection:text-black">
