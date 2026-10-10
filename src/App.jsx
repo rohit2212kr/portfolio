@@ -34,7 +34,7 @@ export default function App() {
         {/* Section 2: Projects Showcase (3D Perspective Tilt Bento-Grid) */}
         <ProjectsSection />
 
-        {/* Section 3A: Technical Arsenal & LeetCode 300+ Solved Graphic */}
+        {/* Section 3A: Technical Arsenal, Client Services & Production Standards */}
         <ArsenalSection />
 
         {/* Section 3B: Interactive Monochrome Terminal Widget */}

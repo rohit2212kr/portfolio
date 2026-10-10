@@ -38,13 +38,14 @@ export default function HeroSection({ onOpenContact }) {
             className="lg:col-span-7 flex flex-col justify-center space-y-6"
           >
             {/* Tagline pill */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3">
               <span className="brutalist-badge">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-                PORTFOLIO // 2026
+                FREELANCE FULL-STACK DEVELOPER // 2026
               </span>
-              <span className="text-xs font-mono text-[#8c8c8c]">
-                LATENCY: &lt;16MS // 60FPS
+              <span className="text-xs font-mono text-[#8c8c8c] flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                Available for Client Projects & Contracts
               </span>
             </motion.div>
 
@@ -61,7 +62,7 @@ export default function HeroSection({ onOpenContact }) {
               variants={itemVariants}
               className="text-base sm:text-lg text-[#8c8c8c] leading-relaxed max-w-2xl font-sans"
             >
-              Building high-throughput web systems, modular APIs, and intuitive developer environments with strict adherence to system architecture, extreme performance, and brutalist clarity.
+              Delivering custom full-stack web applications, high-converting interfaces, and resilient API integrations for founders, startups, and clients with zero technical debt and uncompromising speed.
             </motion.p>
 
             {/* Quick architectural spec tags */}
@@ -74,12 +75,12 @@ export default function HeroSection({ onOpenContact }) {
                 <div className="text-white font-medium mt-0.5">MERN Architecture</div>
               </div>
               <div className="p-2.5 bg-[#0d0d0d] border border-[#262626] rounded-sm">
-                <div className="text-[#8c8c8c] text-[10px] uppercase">Algorithmic Base</div>
-                <div className="text-white font-medium mt-0.5">300+ Solved</div>
+                <div className="text-[#8c8c8c] text-[10px] uppercase">Client Delivery</div>
+                <div className="text-white font-medium mt-0.5">Fast Turnaround</div>
               </div>
               <div className="p-2.5 bg-[#0d0d0d] border border-[#262626] rounded-sm col-span-2 sm:col-span-1">
-                <div className="text-[#8c8c8c] text-[10px] uppercase">Design Doctrine</div>
-                <div className="text-white font-medium mt-0.5">Strict Monochrome</div>
+                <div className="text-[#8c8c8c] text-[10px] uppercase">Standards</div>
+                <div className="text-white font-medium mt-0.5">95+ Lighthouse Score</div>
               </div>
             </motion.div>
 

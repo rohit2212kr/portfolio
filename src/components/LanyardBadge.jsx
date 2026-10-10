@@ -272,7 +272,7 @@ export default function LanyardBadge() {
               <span className="text-[10px] text-zinc-500 font-normal">DEV.SYS</span>
             </h3>
             <div className="inline-block bg-[#171717] border border-[#2d2d2d] px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-zinc-300">
-              Full Stack Engineer
+              Freelance Full Stack Engineer
             </div>
           </div>
 
@@ -283,7 +283,7 @@ export default function LanyardBadge() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
             </span>
             <span className="text-[10px] font-mono text-zinc-300 uppercase tracking-wider">
-              Available for Opportunities
+              Available for Client Projects & Contracts
             </span>
           </div>
 

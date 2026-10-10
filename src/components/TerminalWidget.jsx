@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, CornerDownLeft, Maximize2, Minimize2, Circle, Copy, Check } from 'lucide-react';
-import { ASCII_BANNER, ASCII_LANYARD, ASCII_LEETCODE } from '../utils/asciiArt';
+import { ASCII_BANNER, ASCII_LANYARD, ASCII_SERVICES } from '../utils/asciiArt';
 
 export default function TerminalWidget({ onOpenContact }) {
   const [inputVal, setInputVal] = useState('');
@@ -20,7 +20,7 @@ export default function TerminalWidget({ onOpenContact }) {
       },
       {
         type: 'output',
-        content: 'ROHIT KUMAR [PORTFOLIO TERMINAL v2.6.0-monochrome]\nType "help" or click suggested command chips below to inspect system.',
+        content: 'ROHIT KUMAR [FREELANCE DEVELOPER CLI v2.6.0-monochrome]\nType "services", "pricing", "timeline", "hire" or click suggested command chips below.',
       },
     ]);
   }, []);
@@ -54,12 +54,16 @@ export default function TerminalWidget({ onOpenContact }) {
       newHistory.push({
         type: 'output',
         content: `AVAILABLE COMMANDS:
-  ls                 - List directory files & architectural modules
-  cat about.txt      - Display engineering bio and philosophy
-  skills             - Inspect frontend, backend & database arsenal
+  services           - Inspect client deliverables, technical scope & stacks
+  pricing            - View transparent project rates & contract models
+  timeline           - Inspect turn-around benchmarks & development sprints
+  hire               - Dispatch onboarding inquiry & open direct dispatch
+  skills             - Inspect frontend, backend & devops arsenal
   cat axora          - View Axora MERN e-commerce architecture specs
-  run api-explorer   - Execute simulated REST client engine diagnostics
   cat cafe           - View Roast & Bloom Specialty Cafe specs
+  run api-explorer   - Execute simulated REST client engine diagnostics
+  cat about.txt      - Display engineering bio and freelance philosophy
+  ls                 - List directory files & architectural modules
   contact            - View email, social links & trigger dispatch
   banner             - Print stark ASCII art identity banner
   whoami             - Query current shell user identity
@@ -72,35 +76,137 @@ export default function TerminalWidget({ onOpenContact }) {
         content: `drwxr-xr-x  axora/             [MERN E-Commerce Core]
 drwxr-xr-x  api-explorer/      [REST Testing Engine]
 drwxr-xr-x  cafe/              [Roast & Bloom Specialty Roastery]
+-rw-r--r--  services.txt       [Client Deliverables & Badges]
+-rw-r--r--  pricing.md         [Rates & Engagement Models]
+-rw-r--r--  timeline.json      [Delivery Sprints & Turnaround]
+-rwxr-xr-x  hire.sh            [Instant Client Onboarding]
 -rw-r--r--  about.txt          [Engineering Ethos & Bio]
 -rw-r--r--  skills.json        [Arsenal Matrix]
--rw-r--r--  leetcode_stats.md  [300+ Solved Metrics]
 -rwxr-xr-x  contact.sh         [rohit2212kr@gmail.com]
 -rw-r--r--  resume.pdf         [Technical Resume]`,
       });
+    } else if (lowerCmd === 'services' || lowerCmd === 'cat services.txt') {
+      newHistory.push({
+        type: 'ascii',
+        content: ASCII_SERVICES,
+      });
+      newHistory.push({
+        type: 'output',
+        content: `[CLIENT SERVICES // DELIVERABLES & TECHNICAL SCOPE]
+============================================================
+1. CUSTOM FULL-STACK WEB APPLICATIONS
+   • Stack: React, Node.js, Express, MongoDB Atlas
+   • Badge: [FAST TURNAROUND]
+   • Scope: SaaS MVPs, client portals, responsive dashboards,
+            state-driven workflows, clean REST architectures.
+
+2. HIGH-CONVERSION LANDING PAGES & MODERN UI
+   • Stack: Vite, Tailwind CSS, Framer Motion
+   • Badge: [SEO READY // 60 FPS]
+   • Scope: High-converting landing pages, mobile-first design,
+            fluid micro-interactions, sub-second load times.
+
+3. E-COMMERCE & PAYMENT GATEWAY INTEGRATIONS
+   • Stack: Stripe API, Webhooks, HMAC Signatures
+   • Badge: [SECURE CHECKOUT]
+   • Scope: Checkout sessions, recurring subscriptions, automated
+            order verification, and PCI-compliant handling.
+
+4. API ENGINEERING & THIRD-PARTY SERVICES
+   • Stack: RESTful APIs, WhatsApp Business API, Postman
+   • Badge: [HIGH THROUGHPUT]
+   • Scope: Third-party webhook sync, automated WhatsApp alerts,
+            rate-limited endpoints, bulletproof error handling.
+
+Type "pricing" for rates or "hire" to discuss your project.`,
+      });
+    } else if (lowerCmd === 'pricing' || lowerCmd === 'cat pricing.md') {
+      newHistory.push({
+        type: 'output',
+        content: `[FREELANCE PRICING // ENGAGEMENT RATES]
+============================================================
+• LANDING PAGES & INTERACTIVE UI
+  Rate:       $600 – $1,200 (Fixed Milestone)
+  Turnaround: 3–5 Business Days
+  Includes:   Framer Motion animations, Tailwind CSS, 95+ Lighthouse.
+
+• FULL-STACK WEB APPLICATIONS & MVPS
+  Rate:       $1,500 – $3,500 (Milestone-based)
+  Turnaround: 1–3 Weeks
+  Includes:   React frontend, Node/Express backend, MongoDB, Auth.
+
+• PAYMENT & API INTEGRATIONS
+  Rate:       $400 – $900 (Fixed Milestone)
+  Turnaround: 2–4 Business Days
+  Includes:   Stripe checkout, Webhooks, WhatsApp API, testing.
+
+• DEDICATED SPRINT / RETAINER
+  Rate:       Custom terms based on scope
+  Includes:   Full-stack feature velocity, code audits, maintenance.
+
+* Fixed-price milestones. Zero hidden fees. Transparent delivery.
+Type "hire" to initiate inquiry.`,
+      });
+    } else if (lowerCmd === 'timeline' || lowerCmd === 'cat timeline.json') {
+      newHistory.push({
+        type: 'output',
+        content: `[DELIVERY TIMELINE // PRODUCTION SPRINTS]
+============================================================
+DAY 01 - 02: Architectural Blueprint & Scope Finalization
+             Wireframing, schema modeling, endpoint contract design.
+
+DAY 03 - 05: Core Frontend Implementation & UI Components
+             Responsive Tailwind layouts, interaction states, animations.
+
+DAY 06 - 09: Backend APIs, Database & Payment Gateways
+             Node/Express controllers, MongoDB Atlas models, Stripe.
+
+DAY 10 - 11: Production Hardening & Cross-Device QA
+             95+ Lighthouse audit, mobile verification, error audits.
+
+DAY 12 - 14: Vercel Cloud Deployment & Client Handoff
+             DNS configuration, GitHub code handover, documentation.
+
+Average Full MVP Turnaround: 10 to 14 Business Days.
+Type "hire" to reserve a development sprint.`,
+      });
+    } else if (lowerCmd === 'hire' || lowerCmd === './hire.sh') {
+      newHistory.push({
+        type: 'output',
+        content: `[INITIALIZING CLIENT ONBOARDING PROTOCOL...]
+============================================================
+Status:      AVAILABLE FOR CLIENT PROJECTS & CONTRACTS
+Developer:   Rohit Kumar (Freelance Full-Stack Developer)
+Email:       rohit2212kr@gmail.com
+Response:    Guaranteed response within 12-24 hours.
+
+>>> Launching direct project inquiry modal...`,
+      });
+      if (onOpenContact) {
+        setTimeout(() => onOpenContact(), 600);
+      }
     } else if (lowerCmd === 'cat about.txt') {
       newHistory.push({
         type: 'output',
         content: `[ABOUT // ROHIT KUMAR]
 ------------------------------------------------------------
-Role:       Full Stack Engineer & Developer Tooling Architect
-Focus:      High-throughput web applications, clean API design,
-            and strictly minimalist, high-performance interfaces.
-Experience: Engineering end-to-end full-stack systems using React,
-            Node.js, Express, and MongoDB.
-Philosophy: Zero bloat. Pure brutalist clarity. Every byte and every
-            millisecond counts.`,
+Role:       Freelance Full-Stack Developer (2026)
+Focus:      Delivering fast-turnaround, high-conversion web apps,
+            resilient MERN architectures, and Stripe/API integrations.
+Deliverables: Full-stack SaaS, modern landing pages, e-commerce systems.
+Standards:  95+ Lighthouse score, 100% responsive, zero downtime.
+Status:     Available for client projects & contracts.`,
       });
     } else if (lowerCmd === 'skills' || lowerCmd === 'cat skills.json') {
       newHistory.push({
         type: 'output',
-        content: `[TECHNICAL ARSENAL // STACK MATRIX]
+        content: `[TECHNICAL ARSENAL // PRODUCTION STACK]
 ============================================================
-Frontend:    React, Vite, Tailwind CSS, JavaScript (ES6+), Framer Motion, Redux
-Backend:     Node.js, Express.js, REST APIs, Stripe Payment Gateways, JWT
-Database:    MongoDB, Mongoose ODM, SQL, PostgreSQL, Data Modeling
-Problem Solv: Data Structures & Algorithms, LeetCode 300+ Solved, System Design
-Dev Tools:   Git, GitHub, Docker, Postman, Linux CLI, Vercel`,
+Frontend:    React, Vite, Tailwind CSS, JavaScript (ES6+), Framer Motion
+Backend:     Node.js, Express.js, RESTful APIs, Stripe Payments, JWT
+Databases:   MongoDB Atlas, Mongoose ODM, Schema Architecture, SQL Basics
+Standards:   95+ Lighthouse, 100% Responsive, Zero-Downtime Handoff
+Tooling:     Git, GitHub, Vercel, Postman, Linux CLI, CI/CD Actions`,
       });
     } else if (lowerCmd === 'cat axora') {
       newHistory.push({
@@ -158,7 +264,7 @@ Status:      ACTIVE // IN PRODUCTION`,
 Email:      rohit2212kr@gmail.com (Click button or use footer)
 GitHub:     https://github.com/rohit2212kr
 LinkedIn:   https://www.linkedin.com/in/rohit-kumar-896187214
-Status:     OPEN FOR FULL-STACK & DEVELOPER TOOLING ROLES`,
+Status:     AVAILABLE FOR CLIENT PROJECTS & CONTRACTS`,
       });
       if (onOpenContact) {
         setTimeout(() => onOpenContact(), 600);
@@ -171,7 +277,7 @@ Status:     OPEN FOR FULL-STACK & DEVELOPER TOOLING ROLES`,
     } else if (lowerCmd === 'whoami') {
       newHistory.push({
         type: 'output',
-        content: 'rohit // full_stack_engineer // uid=1000(rohit) gid=1000(dev)',
+        content: 'rohit // freelance_full_stack_dev // uid=1000(rohit) gid=1000(client_ready)',
       });
     } else if (lowerCmd === 'date') {
       newHistory.push({
@@ -186,7 +292,7 @@ Status:     OPEN FOR FULL-STACK & DEVELOPER TOOLING ROLES`,
     } else {
       newHistory.push({
         type: 'output',
-        content: `command not found: "${cmd}". Type "help" to list available commands.`,
+        content: `command not found: "${cmd}". Type "help" or click suggested command chips.`,
       });
     }
 
@@ -218,13 +324,13 @@ Status:     OPEN FOR FULL-STACK & DEVELOPER TOOLING ROLES`,
   };
 
   const quickCommands = [
-    'ls',
-    'cat about.txt',
-    'skills',
+    'services',
+    'pricing',
+    'timeline',
+    'hire',
     'cat axora',
-    'run api-explorer',
     'cat cafe',
-    'contact',
+    'skills',
     'clear',
   ];
 
