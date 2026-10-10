@@ -33,6 +33,9 @@ A high-performance, strictly monochrome (B&W brutalist minimalism) and hyper-ani
   - High-throughput Postman-style developer REST testing suite wireframe.
   - Interactive method selector, active URL bar, and endpoint history list.
   - Live simulated streaming monochrome JSON response animation on hover/click.
+- **Roast & Bloom Cafe** ([Live Demo](https://cafe-sample-web.vercel.app/) | [GitHub](https://github.com/rohit2212kr/Cafe_sample_web)):
+  - Specialty coffee roastery & table reservation web app.
+  - Interactive table seating layout & live WhatsApp Business API booking dispatch console.
 
 ### 3. Technical Arsenal & Interactive Monochrome Terminal
 - **Skills Matrix (Arsenal)**:

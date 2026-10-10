@@ -158,6 +158,17 @@ export default function Footer({ onOpenContact }) {
                   <ArrowUpRight className="w-3 h-3 opacity-60" />
                 </a>
               </div>
+              <div>
+                <a
+                  href="https://cafe-sample-web.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-zinc-400 hover:text-white transition flex items-center gap-1.5"
+                >
+                  <span>Roast & Bloom Cafe (Booking)</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-60" />
+                </a>
+              </div>
             </div>
 
           </div>

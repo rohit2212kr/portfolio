@@ -59,6 +59,7 @@ export default function TerminalWidget({ onOpenContact }) {
   skills             - Inspect frontend, backend & database arsenal
   cat axora          - View Axora MERN e-commerce architecture specs
   run api-explorer   - Execute simulated REST client engine diagnostics
+  cat cafe           - View Roast & Bloom Specialty Cafe specs
   contact            - View email, social links & trigger dispatch
   banner             - Print stark ASCII art identity banner
   whoami             - Query current shell user identity
@@ -70,6 +71,7 @@ export default function TerminalWidget({ onOpenContact }) {
         type: 'output',
         content: `drwxr-xr-x  axora/             [MERN E-Commerce Core]
 drwxr-xr-x  api-explorer/      [REST Testing Engine]
+drwxr-xr-x  cafe/              [Roast & Bloom Specialty Roastery]
 -rw-r--r--  about.txt          [Engineering Ethos & Bio]
 -rw-r--r--  skills.json        [Arsenal Matrix]
 -rw-r--r--  leetcode_stats.md  [300+ Solved Metrics]
@@ -131,6 +133,22 @@ Benchmarking active endpoints:
 Features:    Authentication testing, zero-telemetry request history,
              real-time latency profiling, and dynamic JSON streaming.
 Diagnostic:  ALL SYSTEMS NOMINAL (0 packet loss)`,
+      });
+    } else if (lowerCmd === 'cat cafe' || lowerCmd === 'run cafe') {
+      newHistory.push({
+        type: 'output',
+        content: `[PROJECT // ROAST & BLOOM CAFE]
+============================================================
+Deployment:  https://cafe-sample-web.vercel.app/
+Repository:  https://github.com/rohit2212kr/Cafe_sample_web
+Title:       Roast & Bloom Cafe
+Tagline:     Specialty Coffee Roastery & Table Reservation Web App
+Stack:       React, Vite, Tailwind CSS, Lucide Icons, WhatsApp Business API
+Features:    
+  - Artisanal coffee catalog with origin tasting notes & roast profiles
+  - Dynamic seating layout & table section selection
+  - Instant one-tap WhatsApp Business API reservation dispatch
+Status:      ACTIVE // IN PRODUCTION`,
       });
     } else if (lowerCmd === 'contact' || lowerCmd === './contact.sh') {
       newHistory.push({
@@ -205,6 +223,7 @@ Status:     OPEN FOR FULL-STACK & DEVELOPER TOOLING ROLES`,
     'skills',
     'cat axora',
     'run api-explorer',
+    'cat cafe',
     'contact',
     'clear',
   ];
