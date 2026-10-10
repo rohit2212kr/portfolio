@@ -248,11 +248,11 @@ export default function LanyardBadge() {
             <div className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-white/60 z-20" />
             <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-white/60 z-20" />
 
-            <div className="relative w-full h-44 bg-[#050505] border border-[#262626] overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-52 sm:h-56 bg-[#050505] border border-[#262626] overflow-hidden flex items-center justify-center">
               <img
-                src="/my-pic.jpeg"
+                src="/my-pic2.jpeg"
                 alt="Rohit Kumar"
-                className="w-full h-full object-cover grayscale contrast-110 object-[center_20%]"
+                className="w-full h-full object-cover grayscale contrast-105 object-[center_15%]"
                 loading="eager"
               />
               {/* Scanline CRT overlay */}
