@@ -213,7 +213,7 @@ Tooling:     Git, GitHub, Vercel, Postman, Linux CLI, CI/CD Actions`,
         type: 'output',
         content: `[PROJECT // AXORA ARCHITECTURAL MANIFEST]
 ============================================================
-Deployment:  https://axora-dlb6.vercel.app/
+Deployment:  https://axoraa-gray.vercel.app/
 Repository:  https://github.com/rohit2212kr/Axora
 Stack:       React, Vite, Node.js, Express, MongoDB, Stripe API, Tailwind
 Pipeline:    

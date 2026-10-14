@@ -26,7 +26,7 @@ A high-performance, strictly monochrome (B&W brutalist minimalism) and hyper-ani
     - Developer photo, name, role badge, pulsed status indicator (*"Available for Opportunities"*), and SVG barcode.
 
 ### 2. Featured Projects Bento Grid (3D Perspective Tilt)
-- **Axora** ([Live Demo](https://axora-dlb6.vercel.app/) | [GitHub](https://github.com/rohit2212kr/Axora)):
+- **Axora** ([Live Demo](https://axoraa-gray.vercel.app/) | [GitHub](https://github.com/rohit2212kr/Axora)):
   - MERN Stack e-commerce architecture.
   - Interactive e-commerce flow diagram graphic (`Client UI` ➔ `Auth Guard` ➔ `Stripe API` ➔ `Webhook Dispatch` ➔ `Order DB`) with real-time protocol inspector.
 - **API Explorer** ([Live Demo](https://api-explorer-lsa7.vercel.app/) | [GitHub](https://github.com/rohit2212kr/API-Explorer)):

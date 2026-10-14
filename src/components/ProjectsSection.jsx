@@ -278,7 +278,7 @@ export default function ProjectsSection() {
             {/* CTA Links */}
             <div className="flex items-center gap-3 pt-6 mt-6 border-t border-[#262626]">
               <a
-                href="https://axora-dlb6.vercel.app/"
+                href="https://axoraa-gray.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
                 className="brutalist-btn flex-1 text-center"

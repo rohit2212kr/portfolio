@@ -138,7 +138,7 @@ export default function Footer({ onOpenContact }) {
               </div>
               <div>
                 <a
-                  href="https://axora-dlb6.vercel.app/"
+                  href="https://axoraa-gray.vercel.app/"
                   target="_blank"
                   rel="noreferrer"
                   className="text-zinc-400 hover:text-white transition flex items-center gap-1.5"
