@@ -59,8 +59,8 @@ export default function TerminalWidget({ onOpenContact }) {
   timeline           - Inspect turn-around benchmarks & development sprints
   hire               - Dispatch onboarding inquiry & open direct dispatch
   skills             - Inspect frontend, backend & devops arsenal
-  cat axora          - View Axora MERN e-commerce architecture specs
   cat cafe           - View Roast & Bloom Specialty Cafe specs
+  cat axora          - View Axora MERN e-commerce architecture specs
   run api-explorer   - Execute simulated REST client engine diagnostics
   cat about.txt      - Display engineering bio and freelance philosophy
   ls                 - List directory files & architectural modules
@@ -73,9 +73,9 @@ export default function TerminalWidget({ onOpenContact }) {
     } else if (lowerCmd === 'ls' || lowerCmd === 'dir') {
       newHistory.push({
         type: 'output',
-        content: `drwxr-xr-x  axora/             [MERN E-Commerce Core]
+        content: `drwxr-xr-x  cafe/              [Roast & Bloom Specialty Roastery]
+drwxr-xr-x  axora/             [MERN E-Commerce Core]
 drwxr-xr-x  api-explorer/      [REST Testing Engine]
-drwxr-xr-x  cafe/              [Roast & Bloom Specialty Roastery]
 -rw-r--r--  services.txt       [Client Deliverables & Badges]
 -rw-r--r--  pricing.md         [Rates & Engagement Models]
 -rw-r--r--  timeline.json      [Delivery Sprints & Turnaround]
@@ -328,8 +328,8 @@ Status:     AVAILABLE FOR CLIENT PROJECTS & CONTRACTS`,
     'pricing',
     'timeline',
     'hire',
-    'cat axora',
     'cat cafe',
+    'cat axora',
     'skills',
     'clear',
   ];

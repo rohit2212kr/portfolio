@@ -71,6 +71,25 @@ function TiltCard({ children, className = '' }) {
 }
 
 export default function ProjectsSection() {
+  // ROAST & BLOOM CAFE interactive reservation state
+  const tables = [
+    { id: 'Booth #04', label: 'Booth #04', capacity: '4 Guests', area: 'Main Lounge' },
+    { id: 'Patio #02', label: 'Patio #02', capacity: '2 Guests', area: 'Garden Terrace' },
+    { id: 'Bar #01', label: 'Bar Counter', capacity: '1-2 Guests', area: 'Espresso Bar' },
+  ];
+  const [selectedTable, setSelectedTable] = useState(tables[0]);
+  const [guestsCount, setGuestsCount] = useState(2);
+  const [bookingStatus, setBookingStatus] = useState('CONFIRMED // 2 GUESTS');
+  const [isDispatchingBooking, setIsDispatchingBooking] = useState(false);
+
+  const handleDispatchBooking = (table, guests) => {
+    setIsDispatchingBooking(true);
+    setTimeout(() => {
+      setBookingStatus(`CONFIRMED // ${guests} GUESTS`);
+      setIsDispatchingBooking(false);
+    }, 350);
+  };
+
   // AXORA Flow diagram interactive state
   const [activeFlowNode, setActiveFlowNode] = useState(0);
   const flowNodes = [
@@ -127,25 +146,6 @@ export default function ProjectsSection() {
     }, 280);
   };
 
-  // ROAST & BLOOM CAFE interactive reservation state
-  const tables = [
-    { id: 'Booth #04', label: 'Booth #04', capacity: '4 Guests', area: 'Main Lounge' },
-    { id: 'Patio #02', label: 'Patio #02', capacity: '2 Guests', area: 'Garden Terrace' },
-    { id: 'Bar #01', label: 'Bar Counter', capacity: '1-2 Guests', area: 'Espresso Bar' },
-  ];
-  const [selectedTable, setSelectedTable] = useState(tables[0]);
-  const [guestsCount, setGuestsCount] = useState(2);
-  const [bookingStatus, setBookingStatus] = useState('CONFIRMED // 2 GUESTS');
-  const [isDispatchingBooking, setIsDispatchingBooking] = useState(false);
-
-  const handleDispatchBooking = (table, guests) => {
-    setIsDispatchingBooking(true);
-    setTimeout(() => {
-      setBookingStatus(`CONFIRMED // ${guests} GUESTS`);
-      setIsDispatchingBooking(false);
-    }, 350);
-  };
-
   return (
     <section id="projects" className="py-24 border-b border-[#262626] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -164,15 +164,15 @@ export default function ProjectsSection() {
             </h2>
           </div>
           <p className="text-sm font-mono text-[#8c8c8c] mt-4 md:mt-0 max-w-md">
-            Asymmetrical 3D perspective bento-grid showcasing full-stack commerce, developer tools, and client booking systems.
+            Asymmetrical 3D perspective bento-grid showcasing client booking systems, full-stack commerce, and developer tools.
           </p>
         </div>
 
-        {/* Bento Grid Hierarchy: Axora (Hero 2-cols), API Explorer & Roast & Bloom (Adjacent cards) */}
+        {/* Bento Grid Hierarchy: Roast & Bloom (Hero 2-cols), Axora & API Explorer (Adjacent 1-col cards) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           
           {/* ========================================================================= */}
-          {/* PROJECT 1: AXORA (HERO FEATURE: 2 COLUMNS) */}
+          {/* PROJECT 1: ROAST & BLOOM CAFE (HERO FEATURE: 2 COLUMNS) */}
           {/* ========================================================================= */}
           <TiltCard className="lg:col-span-2 flex flex-col justify-between p-6 sm:p-8">
             <div className="space-y-6">
@@ -184,7 +184,196 @@ export default function ProjectsSection() {
                     PROJECT // 01
                   </span>
                   <span className="text-[10px] font-mono text-[#8c8c8c]">
-                    FULL-STACK COMMERCE • HERO FEATURE
+                    HOSPITALITY & RESERVATIONS • HERO FEATURE
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                  <span className="text-[10px] font-mono text-zinc-400">ACTIVE CLIENT APP</span>
+                </div>
+              </div>
+
+              {/* Title & Description Header */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+                <div className="lg:col-span-5">
+                  <h3 className="text-3xl sm:text-4xl font-mono font-bold tracking-tight text-white uppercase flex items-center gap-3">
+                    Roast & Bloom
+                    <Coffee className="w-6 h-6 text-zinc-400 opacity-80" />
+                  </h3>
+                  <p className="text-xs font-mono text-zinc-400 mt-1">
+                    Specialty Coffee Roastery & Table Reservation Web App
+                  </p>
+                </div>
+                <p className="lg:col-span-7 text-sm text-[#8c8c8c] leading-relaxed">
+                  Interactive artisanal coffee roastery web experience featuring origin tasting notes, dynamic seating selection, and instant table reservation dispatch via WhatsApp Business API.
+                </p>
+              </div>
+
+              {/* TABLE RESERVATION / WHATSAPP BOOKING DISPATCH PREVIEW (HERO WIDE LAYOUT) */}
+              <div className="bg-[#050505] border border-[#262626] rounded-lg p-4 sm:p-5 font-mono text-xs space-y-4">
+                
+                {/* Header with simulated status */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#1f1f1f] gap-2">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-zinc-400" />
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                      Interactive Table Dispatch Console
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    <span className="text-[10px] text-zinc-300 font-semibold tracking-wider bg-[#141414] border border-[#262626] px-2 py-0.5">
+                      {bookingStatus}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Seating & Controls in a 2-Column Subgrid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+                  
+                  {/* Left: Table Section Selector */}
+                  <div className="lg:col-span-7 space-y-2">
+                    <div className="text-[10px] uppercase text-[#777] flex justify-between font-semibold">
+                      <span>SELECT TABLE SECTION:</span>
+                      <span>TODAY • 19:30 HRS</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {tables.map((t) => {
+                        const isSel = selectedTable.id === t.id;
+                        return (
+                          <button
+                            key={t.id}
+                            onClick={() => {
+                              setSelectedTable(t);
+                              handleDispatchBooking(t.id, guestsCount);
+                            }}
+                            className={`p-2.5 text-left border rounded-xs transition-all cursor-pointer flex flex-col justify-between ${
+                              isSel
+                                ? 'bg-white text-black border-white font-bold shadow-lg'
+                                : 'bg-[#0f0f0f] text-zinc-400 border-[#262626] hover:border-zinc-500 hover:text-white'
+                            }`}
+                          >
+                            <div className="text-[11px] font-bold truncate">{t.label}</div>
+                            <div className={`text-[9px] truncate mt-1 ${isSel ? 'text-zinc-800' : 'text-[#777]'}`}>
+                              {t.capacity} • {t.area}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Right: Guest Count Selector */}
+                  <div className="lg:col-span-5 bg-[#0a0a0a] border border-[#222] p-3 rounded space-y-2">
+                    <div className="text-[10px] uppercase text-[#777] flex justify-between font-semibold">
+                      <span>PARTY SIZE:</span>
+                      <span className="text-white">{guestsCount} GUESTS</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => {
+                          const next = Math.max(1, guestsCount - 1);
+                          setGuestsCount(next);
+                          handleDispatchBooking(selectedTable.id, next);
+                        }}
+                        className="flex-1 py-1 bg-[#161616] hover:bg-white hover:text-black border border-[#333] text-zinc-300 font-bold transition text-xs cursor-pointer"
+                      >
+                        -
+                      </button>
+                      <span className="px-3 py-1 bg-black border border-[#222] text-white font-bold text-center min-w-[60px]">
+                        {guestsCount}p
+                      </span>
+                      <button
+                        onClick={() => {
+                          const next = Math.min(8, guestsCount + 1);
+                          setGuestsCount(next);
+                          handleDispatchBooking(selectedTable.id, next);
+                        }}
+                        className="flex-1 py-1 bg-[#161616] hover:bg-white hover:text-black border border-[#333] text-zinc-300 font-bold transition text-xs cursor-pointer"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* WhatsApp simulated transmission bar */}
+                <div className="p-2.5 bg-[#0c0c0c] border border-[#222] rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 text-[11px] text-zinc-300 truncate">
+                    <MessageCircle className="w-4 h-4 text-white flex-shrink-0" />
+                    <span className="truncate">
+                      wa.me/roast-bloom?res={selectedTable.id.replace(/\s+/g, '_')}&guests={guestsCount}&sec={selectedTable.area.replace(/\s+/g, '_')}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => handleDispatchBooking(selectedTable.id, guestsCount)}
+                    className="px-3 py-1.5 bg-[#1a1a1a] hover:bg-white text-zinc-300 hover:text-black border border-[#333] hover:border-white text-[10px] font-bold transition flex items-center justify-center gap-1.5 cursor-pointer flex-shrink-0"
+                  >
+                    {isDispatchingBooking ? (
+                      <span className="animate-pulse">DISPATCHING...</span>
+                    ) : (
+                      <>
+                        <Send className="w-3 h-3" />
+                        <span>TEST DISPATCH</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+              </div>
+
+              {/* Tech Stack Badges */}
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {['React', 'Vite', 'Tailwind CSS', 'WhatsApp Business API', 'Lucide Icons', 'Responsive UI', 'Client Delivery'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 bg-[#121212] border border-[#262626] text-[11px] font-mono text-zinc-300 uppercase"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Links */}
+            <div className="flex items-center gap-3 pt-6 mt-6 border-t border-[#262626]">
+              <a
+                href="https://cafe-sample-web.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="brutalist-btn flex-1 text-center"
+              >
+                <span>Live Preview</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://github.com/rohit2212kr/Cafe_sample_web"
+                target="_blank"
+                rel="noreferrer"
+                className="brutalist-btn-secondary flex-1 text-center"
+              >
+                <GithubIcon className="w-4 h-4" />
+                <span>Source Code</span>
+              </a>
+            </div>
+          </TiltCard>
+
+
+          {/* ========================================================================= */}
+          {/* PROJECT 2: AXORA (MERN E-COMMERCE CORE) */}
+          {/* ========================================================================= */}
+          <TiltCard className="lg:col-span-1 flex flex-col justify-between p-6 sm:p-8">
+            <div className="space-y-6">
+              
+              {/* Card Meta Top */}
+              <div className="flex items-center justify-between border-b border-[#262626] pb-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono bg-[#171717] border border-[#2d2d2d] px-2 py-0.5 text-white">
+                    PROJECT // 02
+                  </span>
+                  <span className="text-[10px] font-mono text-[#8c8c8c]">
+                    FULL-STACK COMMERCE
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -194,39 +383,37 @@ export default function ProjectsSection() {
               </div>
 
               {/* Title & Description */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-                <div className="lg:col-span-5">
-                  <h3 className="text-3xl sm:text-4xl font-mono font-bold tracking-tight text-white uppercase">
-                    Axora
-                  </h3>
-                  <p className="text-xs font-mono text-zinc-400 mt-1">
-                    High-Performance Modern E-Commerce Architecture
-                  </p>
-                </div>
-                <p className="lg:col-span-7 text-sm text-[#8c8c8c] leading-relaxed">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-mono font-bold tracking-tight text-white uppercase">
+                  Axora
+                </h3>
+                <p className="text-xs font-mono text-zinc-400 mt-1">
+                  High-Performance Modern E-Commerce Architecture
+                </p>
+                <p className="text-sm text-[#8c8c8c] mt-3 leading-relaxed">
                   Engineered with the MERN stack, featuring atomic cart state synchronization, secure Stripe API checkout workflows, signature-verified webhooks, and granular user authorization.
                 </p>
               </div>
 
               {/* ARCHITECTURAL HIGHLIGHTS: INTERACTIVE E-COMMERCE FLOW DIAGRAM */}
-              <div className="bg-[#050505] border border-[#262626] p-4 sm:p-5 rounded-lg">
-                <div className="flex items-center justify-between mb-3 text-[10px] font-mono text-[#8c8c8c]">
+              <div className="bg-[#050505] border border-[#262626] p-3.5 sm:p-4 rounded-lg">
+                <div className="flex items-center justify-between mb-2.5 text-[10px] font-mono text-[#8c8c8c]">
                   <span className="flex items-center gap-1.5 uppercase font-semibold text-zinc-300">
                     <Layers className="w-3.5 h-3.5" />
-                    Interactive Architecture Flow Diagram
+                    Architecture Flow Diagram
                   </span>
-                  <span>CLICK ANY NODE TO INSPECT</span>
+                  <span>CLICK NODE</span>
                 </div>
 
-                {/* Flow Diagram Nodes */}
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                {/* Flow Diagram Nodes Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {flowNodes.map((node) => {
                     const isSelected = activeFlowNode === node.id;
                     return (
                       <button
                         key={node.id}
                         onClick={() => setActiveFlowNode(node.id)}
-                        className={`text-left p-2.5 border transition-all text-xs font-mono cursor-pointer rounded-xs flex flex-col justify-between h-20 ${
+                        className={`text-left p-2 border transition-all text-xs font-mono cursor-pointer rounded-xs flex flex-col justify-between h-18 ${
                           isSelected
                             ? 'bg-white text-black border-white shadow-lg'
                             : 'bg-[#0f0f0f] text-zinc-400 border-[#262626] hover:border-zinc-500 hover:text-white'
@@ -236,7 +423,7 @@ export default function ProjectsSection() {
                           0{node.id + 1}
                         </div>
                         <div>
-                          <div className="font-bold text-[11px] leading-tight">
+                          <div className="font-bold text-[10px] leading-tight truncate">
                             {node.title}
                           </div>
                           <div className={`text-[8px] truncate mt-0.5 ${isSelected ? 'text-zinc-800' : 'text-[#777]'}`}>
@@ -249,10 +436,10 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Active Node Detail Inspector */}
-                <div className="mt-3.5 p-3 bg-[#0e0e0e] border border-[#222] rounded flex flex-col sm:flex-row sm:items-center justify-between font-mono text-xs gap-1.5">
-                  <div>
-                    <span className="text-[#8c8c8c] text-[10px] mr-2">PROTOCOL:</span>
-                    <span className="text-white font-medium">
+                <div className="mt-3 p-2.5 bg-[#0e0e0e] border border-[#222] rounded flex flex-col font-mono text-xs gap-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[#8c8c8c] text-[10px]">PROTOCOL:</span>
+                    <span className="text-white font-medium text-[11px]">
                       {flowNodes[activeFlowNode].title} ➔ {flowNodes[activeFlowNode].role}
                     </span>
                   </div>
@@ -300,7 +487,7 @@ export default function ProjectsSection() {
 
 
           {/* ========================================================================= */}
-          {/* PROJECT 2: API EXPLORER */}
+          {/* PROJECT 3: API EXPLORER */}
           {/* ========================================================================= */}
           <TiltCard className="lg:col-span-1 flex flex-col justify-between p-6 sm:p-8">
             <div className="space-y-6">
@@ -309,7 +496,7 @@ export default function ProjectsSection() {
               <div className="flex items-center justify-between border-b border-[#262626] pb-4">
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-mono bg-[#171717] border border-[#2d2d2d] px-2 py-0.5 text-white">
-                    PROJECT // 02
+                    PROJECT // 03
                   </span>
                   <span className="text-[10px] font-mono text-[#8c8c8c]">
                     DEVELOPER TOOLING
@@ -369,48 +556,50 @@ export default function ProjectsSection() {
                           key={idx}
                           onMouseEnter={() => triggerEndpointSimulation(ep)}
                           onClick={() => triggerEndpointSimulation(ep)}
-                          className={`p-1.5 text-[10px] rounded cursor-pointer transition flex items-center justify-between ${
+                          className={`p-1.5 border rounded-xs transition-all cursor-pointer flex items-center justify-between text-[10px] ${
                             isActive
-                              ? 'bg-[#1c1c1c] text-white border border-[#333]'
-                              : 'text-[#888] hover:bg-[#121212] hover:text-white'
+                              ? 'bg-[#1c1c1c] text-white border-[#444]'
+                              : 'bg-transparent text-zinc-500 border-transparent hover:text-zinc-300'
                           }`}
                         >
-                          <div className="truncate flex items-center gap-1.5">
-                            <span className="text-[9px] font-bold opacity-80">{ep.method}</span>
+                          <div className="flex items-center gap-1.5 truncate">
+                            <span className="font-bold text-[9px] text-zinc-400">{ep.method}</span>
                             <span className="truncate">{ep.path}</span>
                           </div>
-                          <span className="text-[9px] opacity-60 ml-1">{ep.time}</span>
+                          <span className="text-[8px] opacity-60 ml-1">{ep.time}</span>
                         </div>
                       );
                     })}
                   </div>
 
-                  {/* Right: Simulated Monochrome JSON Response */}
-                  <div className="sm:col-span-7 p-2.5 bg-[#050505] flex flex-col justify-between">
+                  {/* Right: Live Simulated JSON Streaming output */}
+                  <div className="sm:col-span-7 p-2.5 bg-[#050505] relative flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center justify-between text-[9px] text-[#777] border-b border-[#1f1f1f] pb-1 mb-1.5">
+                      <div className="flex items-center justify-between text-[9px] text-[#666] border-b border-[#1a1a1a] pb-1 mb-1.5">
                         <span className="flex items-center gap-1 text-zinc-300">
-                          <CheckCircle2 className="w-2.5 h-2.5" />
+                          <CheckCircle2 className="w-2.5 h-2.5 text-white" />
                           STATUS: {selectedEndpoint.status} OK
                         </span>
                         <span>LATENCY: {selectedEndpoint.time}</span>
                       </div>
-                      <pre className="text-[10px] text-zinc-300 font-mono overflow-x-auto leading-relaxed whitespace-pre select-text">
+                      <pre className="text-[10px] text-zinc-300 font-mono leading-tight whitespace-pre overflow-x-auto">
                         {responseOutput}
                       </pre>
                     </div>
 
-                    <div className="text-[8px] text-[#555] text-right pt-1">
-                      {isSimulating ? 'TRANSMITTING STREAM...' : '200 OK • 1.2KB • JSON'}
+                    <div className="text-[8px] text-[#555] pt-1 border-t border-[#1a1a1a] flex justify-between mt-2">
+                      <span>TLS 1.3 SECURE</span>
+                      <span>0 TELEMETRY</span>
                     </div>
                   </div>
 
                 </div>
+
               </div>
 
               {/* Tech Stack Badges */}
               <div className="flex flex-wrap gap-1.5 pt-1">
-                {['React', 'Vite', 'Tailwind CSS', 'Axios Engine', 'Auth Testing', 'Endpoint History'].map((tech) => (
+                {['React', 'Vite', 'Tailwind CSS', 'REST APIs', 'Framer Motion', 'Zero Telemetry'].map((tech) => (
                   <span
                     key={tech}
                     className="px-2.5 py-1 bg-[#121212] border border-[#262626] text-[11px] font-mono text-zinc-300 uppercase"
@@ -440,155 +629,6 @@ export default function ProjectsSection() {
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>Source</span>
-              </a>
-            </div>
-          </TiltCard>
-
-
-          {/* ========================================================================= */}
-          {/* PROJECT 3: ROAST & BLOOM CAFE */}
-          {/* ========================================================================= */}
-          <TiltCard className="lg:col-span-1 flex flex-col justify-between p-6 sm:p-8">
-            <div className="space-y-6">
-              
-              {/* Card Meta Top */}
-              <div className="flex items-center justify-between border-b border-[#262626] pb-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono bg-[#171717] border border-[#2d2d2d] px-2 py-0.5 text-white">
-                    PROJECT // 03
-                  </span>
-                  <span className="text-[10px] font-mono text-[#8c8c8c]">
-                    HOSPITALITY & RESERVATIONS
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  <span className="text-[10px] font-mono text-zinc-400">ACTIVE CLIENT APP</span>
-                </div>
-              </div>
-
-              {/* Title & Description */}
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-mono font-bold tracking-tight text-white uppercase flex items-center justify-between">
-                  Roast & Bloom
-                  <Coffee className="w-5 h-5 text-zinc-400 opacity-60" />
-                </h3>
-                <p className="text-xs font-mono text-zinc-400 mt-1">
-                  Specialty Coffee Roastery & Table Reservation Web App
-                </p>
-                <p className="text-sm text-[#8c8c8c] mt-3 leading-relaxed">
-                  Interactive artisanal coffee roastery web experience featuring origin tasting notes, dynamic seating selection, and instant table reservation dispatch via WhatsApp Business API.
-                </p>
-              </div>
-
-              {/* TABLE RESERVATION / WHATSAPP BOOKING DISPATCH PREVIEW */}
-              <div className="bg-[#050505] border border-[#262626] rounded-lg p-3.5 font-mono text-xs space-y-3">
-                
-                {/* Header with simulated status */}
-                <div className="flex items-center justify-between pb-2 border-b border-[#1f1f1f]">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-3.5 h-3.5 text-zinc-400" />
-                    <span className="text-[10px] font-bold text-white uppercase">
-                      Table Dispatch Console
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    <span className="text-[9px] text-zinc-300 font-semibold tracking-wider">
-                      {bookingStatus}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Seating / Table selection buttons */}
-                <div>
-                  <div className="text-[9px] uppercase text-[#666] mb-1.5 flex justify-between">
-                    <span>SELECT TABLE SECTION:</span>
-                    <span>TODAY • 19:30 HRS</span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {tables.map((t) => {
-                      const isSel = selectedTable.id === t.id;
-                      return (
-                        <button
-                          key={t.id}
-                          onClick={() => {
-                            setSelectedTable(t);
-                            handleDispatchBooking(t.id, guestsCount);
-                          }}
-                          className={`p-1.5 text-left border rounded-xs transition-all cursor-pointer ${
-                            isSel
-                              ? 'bg-white text-black border-white font-bold'
-                              : 'bg-[#0f0f0f] text-zinc-400 border-[#262626] hover:border-zinc-500 hover:text-white'
-                          }`}
-                        >
-                          <div className="text-[10px] truncate">{t.label}</div>
-                          <div className={`text-[8px] truncate ${isSel ? 'text-zinc-800' : 'text-[#666]'}`}>
-                            {t.capacity}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* WhatsApp simulated transmission bar */}
-                <div className="p-2 bg-[#0c0c0c] border border-[#222] rounded flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-[10px] text-zinc-300">
-                    <MessageCircle className="w-3.5 h-3.5 text-white" />
-                    <span className="truncate">
-                      wa.me/roast-bloom?res={selectedTable.id.replace(/\s+/g, '_')}&p={guestsCount}
-                    </span>
-                  </div>
-                  <button
-                    onClick={() => handleDispatchBooking(selectedTable.id, guestsCount)}
-                    className="px-2 py-1 bg-[#1a1a1a] hover:bg-white text-zinc-300 hover:text-black border border-[#333] hover:border-white text-[9px] font-bold transition flex items-center gap-1 cursor-pointer"
-                  >
-                    {isDispatchingBooking ? (
-                      <span className="animate-pulse">DISPATCHING...</span>
-                    ) : (
-                      <>
-                        <Send className="w-2.5 h-2.5" />
-                        <span>TEST DISPATCH</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-
-              </div>
-
-              {/* Tech Stack Badges */}
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['React', 'Vite', 'Tailwind CSS', 'WhatsApp API', 'Lucide Icons', 'Responsive UI'].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 py-1 bg-[#121212] border border-[#262626] text-[11px] font-mono text-zinc-300 uppercase"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA Links */}
-            <div className="flex items-center gap-3 pt-6 mt-6 border-t border-[#262626]">
-              <a
-                href="https://cafe-sample-web.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="brutalist-btn flex-1 text-center"
-              >
-                <span>Live Preview</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href="https://github.com/rohit2212kr/Cafe_sample_web"
-                target="_blank"
-                rel="noreferrer"
-                className="brutalist-btn-secondary flex-1 text-center"
-              >
-                <GithubIcon className="w-4 h-4" />
-                <span>Source Code</span>
               </a>
             </div>
           </TiltCard>

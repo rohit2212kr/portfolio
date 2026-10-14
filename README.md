@@ -26,6 +26,9 @@ A high-performance, strictly monochrome (B&W brutalist minimalism) and hyper-ani
     - Developer photo, name, role badge, pulsed status indicator (*"Available for Opportunities"*), and SVG barcode.
 
 ### 2. Featured Projects Bento Grid (3D Perspective Tilt)
+- **Roast & Bloom Cafe** ([Live Demo](https://cafe-sample-web.vercel.app/) | [GitHub](https://github.com/rohit2212kr/Cafe_sample_web)):
+  - Specialty coffee roastery & table reservation web app.
+  - Interactive table seating layout & live WhatsApp Business API booking dispatch console.
 - **Axora** ([Live Demo](https://axoraa-gray.vercel.app/) | [GitHub](https://github.com/rohit2212kr/Axora)):
   - MERN Stack e-commerce architecture.
   - Interactive e-commerce flow diagram graphic (`Client UI` ➔ `Auth Guard` ➔ `Stripe API` ➔ `Webhook Dispatch` ➔ `Order DB`) with real-time protocol inspector.
@@ -33,13 +36,10 @@ A high-performance, strictly monochrome (B&W brutalist minimalism) and hyper-ani
   - High-throughput Postman-style developer REST testing suite wireframe.
   - Interactive method selector, active URL bar, and endpoint history list.
   - Live simulated streaming monochrome JSON response animation on hover/click.
-- **Roast & Bloom Cafe** ([Live Demo](https://cafe-sample-web.vercel.app/) | [GitHub](https://github.com/rohit2212kr/Cafe_sample_web)):
-  - Specialty coffee roastery & table reservation web app.
-  - Interactive table seating layout & live WhatsApp Business API booking dispatch console.
 
 ### 3. Technical Arsenal & Interactive Monochrome Terminal
-- **Skills Matrix (Arsenal)**:
-  - Frontend, Backend & APIs, Databases & Infra, Problem Solving & CS.
+- **Services & Client Deliverables**:
+  - Full-stack web applications, landing pages, payment integrations, API engineering.
   - LeetCode 300+ Solved brutalist breakdown card with Easy/Medium/Hard distribution bars.
 - **Interactive Terminal Widget**:
   - Stark white ASCII art banners.
